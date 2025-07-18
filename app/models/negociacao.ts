@@ -1,10 +1,12 @@
-export class Negociacao{
+import { Objeto } from "../interfaces/objeto.js";
+
+export class Negociacao implements Objeto<Negociacao> {
     
     constructor(
         private _data: Date,
         public readonly quantidade: number,
         public readonly valor: number) {
-        
+
     }
 
     get data(): Date {
@@ -31,5 +33,11 @@ export class Negociacao{
         const quantidade = parseInt(quantidadeString);
         const valor = parseFloat(valorString);
         return new Negociacao(date, quantidade, valor);
+    }
+
+    public ehiqual(negociacao: Negociacao): boolean {
+        return this.data.getTime() === negociacao.data.getTime() &&
+               this.quantidade === negociacao.quantidade &&
+               this.valor === negociacao.valor;
     }
 }

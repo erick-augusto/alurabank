@@ -19,3 +19,4 @@ if (botaoImporta) {
 else {
     throw Error('Não foi possível inicializar o app. Verifique se o botão importa existe.');
 }
+//# sourceMappingURL=app.js.map
